@@ -9,4 +9,7 @@
     <string name="capture_image">Capture Image</string>
     <string name="scan_result">Scan Result</string>
     <string name="title_permission">Permission</string>
+    <string name="title_activity_tutorial">TutorialActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
