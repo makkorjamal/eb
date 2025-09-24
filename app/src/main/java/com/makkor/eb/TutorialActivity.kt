@@ -169,8 +169,8 @@ class TutorialActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         val sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE)
-            sharedPreferences.edit {
-                putBoolean("runOnce", false)
+        sharedPreferences.edit {
+            putBoolean("runOnce", false)
         }
         super.onDestroy()
     }
