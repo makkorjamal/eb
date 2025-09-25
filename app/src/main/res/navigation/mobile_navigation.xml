@@ -37,9 +37,9 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.makkor.eb.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.makkor.eb.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_settings"

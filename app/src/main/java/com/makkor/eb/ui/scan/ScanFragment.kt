@@ -1,20 +1,21 @@
 package com.makkor.eb.ui.scan
 
+import android.content.Context
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.content.Context
-import android.os.VibrationEffect
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import com.makkor.eb.R
 import com.makkor.eb.databinding.FragmentScanBinding
 import com.makkor.eb.ui.permissions.PermissionsFragment
-import androidx.navigation.findNavController
-import android.os.Vibrator
-import com.journeyapps.barcodescanner.DecoratedBarcodeView
+
 class ScanFragment : Fragment() {
 
     private var _binding: FragmentScanBinding? = null
@@ -43,13 +44,13 @@ class ScanFragment : Fragment() {
         startScanning()
         return root
     }
+
     override fun onResume() {
         if (!PermissionsFragment.hasPermissions(requireContext())) {
             requireActivity().findNavController(R.id.nav_host_fragment_activity_main).navigate(
                 ScanFragmentDirections.actionScanToPermissions()
             )
-        }
-        else{
+        } else {
             barcodeViewer.resume()
         }
         super.onResume()
@@ -59,6 +60,7 @@ class ScanFragment : Fragment() {
         super.onPause()
         barcodeViewer.pause()
     }
+
     private fun startScanning() {
         barcodeViewer.decodeContinuous { result ->
             resultTxt.text = result.text
@@ -66,6 +68,7 @@ class ScanFragment : Fragment() {
             barcodeViewer.pause()
         }
     }
+
     private fun vibrateTwice() {
         val vibrator = requireActivity().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_DOUBLE_CLICK))

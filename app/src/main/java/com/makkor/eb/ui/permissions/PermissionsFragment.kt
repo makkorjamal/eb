@@ -1,18 +1,17 @@
 package com.makkor.eb.ui.permissions
+
+//import com.android.example.cameraxbasic.R
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
-//import com.android.example.cameraxbasic.R
-import com.makkor.eb.R
 import androidx.navigation.findNavController
+import com.makkor.eb.R
 import kotlinx.coroutines.launch
 
 private var PERMISSIONS_REQUIRED = arrayOf(Manifest.permission.CAMERA)
@@ -39,7 +38,8 @@ class PermissionsFragment : Fragment() {
     private fun navigateToCamera() {
         lifecycleScope.launch {
             requireActivity().findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                PermissionsFragmentDirections.actionPermissionsToCamera())
+                PermissionsFragmentDirections.actionPermissionsToCamera()
+            )
         }
     }
 

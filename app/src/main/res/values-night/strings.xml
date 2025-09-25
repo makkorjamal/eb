@@ -2,4 +2,6 @@
 <resources>
     <string name="title_permission">Permission</string>
     <string name="search">Search</string>
+    <string name="no_notes_message">No history</string>
+    <string name="add_history_hint">Add History</string>
 </resources>

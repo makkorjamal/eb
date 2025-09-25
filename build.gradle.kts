@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
+    kotlin("kapt") version "2.2.20"
 }
 buildscript {
     repositories {

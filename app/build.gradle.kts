@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -60,11 +61,25 @@ dependencies {
     implementation(libs.androidx.foundation.layout)
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.runtime)
-    implementation (libs.androidx.camera.core)
-    implementation (libs.androidx.camera.camera2)
-    implementation (libs.androidx.camera.lifecycle)
-    implementation (libs.androidx.camera.view)
+    implementation(libs.guava)
+// To use CallbackToFutureAdapter
+    implementation(libs.androidx.concurrent.futures.v110)
+// Kotlin
+    implementation(libs.kotlinx.coroutines.guava)
+    implementation(libs.androidx.concurrent.futures)
+    implementation(libs.androidx.concurrent.futures.ktx)
     implementation(libs.reorderable)
     implementation(libs.scanner)
+    implementation(libs.androidx.appsearch)
+    // Use annotationProcessor instead of kapt if writing Java classes
+    implementation(libs.androidx.appsearch.local.storage)
+    // PlatformStorage is compatible with Android 12+ devices, and offers additional features
+    // to LocalStorage.
+    implementation(libs.androidx.appsearch.platform.storage)
+    // PlayServicesStorage is compatible with all devices that support Google Play Services on
+    // all API levels. It offers the same features as PlatformStorage and is the recommended
+    // solution for lower API levels on which PlatformStorage is not supported.
+    implementation(libs.androidx.appsearch.play.services.storage)
+    kapt(libs.androidx.appsearch.compiler)
 
 }

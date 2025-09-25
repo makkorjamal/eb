@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.makkor.eb.databinding.ActivityMainBinding
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.top_menu, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_settings -> {
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                     .navigate(R.id.action_to_settingsFragment)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

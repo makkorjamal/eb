@@ -1,8 +1,6 @@
 package com.makkor.eb
 
-import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -12,7 +10,10 @@ import android.view.View
 import android.view.WindowInsets
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import com.makkor.eb.TutorialActivity.Companion.AUTO_HIDE
+import com.makkor.eb.TutorialActivity.Companion.AUTO_HIDE_DELAY_MILLIS
 import com.makkor.eb.databinding.ActivityTutorialBinding
 
 /**
@@ -32,7 +33,7 @@ class TutorialActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= 30) {
             fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
         } else {
-            // Note that some of these constants are new as of API 16 (Jelly Bean)
+            // History that some of these constants are new as of API 16 (Jelly Bean)
             // and API 19 (KitKat). It is safe to use them, as they are inlined
             // at compile-time and do nothing on earlier devices.
             fullscreenContent.systemUiVisibility =
